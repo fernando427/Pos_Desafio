@@ -3,6 +3,8 @@ package com.compass.scholarshipprogram.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.compass.scholarshipprogram.model.Description;
+import com.compass.scholarshipprogram.repositories.DescriptionRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,21 @@ public class ClassesServiceImpl implements ClassesService {
 
     private final ClassesRepository classesRepository;
 
-    public ClassesServiceImpl(ClassesRepository classesRepository) {
+    private final DescriptionRepository descriptionRepository;
+
+    public ClassesServiceImpl(ClassesRepository classesRepository, DescriptionRepository descriptionRepository) {
         this.classesRepository = classesRepository;
+        this.descriptionRepository = descriptionRepository;
     }
 
     @Override
     public Classes save(Classes classes) {
+
+        if(classes.getDescriptionId() != null) {
+            Optional<Description> description = descriptionRepository.findById(classes.getDescriptionId().getId());
+            classes.setDescriptionId(description.get());
+        }
+
         return classesRepository.save(classes);
     }
 
