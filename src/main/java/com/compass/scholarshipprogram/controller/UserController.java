@@ -53,8 +53,8 @@ public class UserController {
     existUser.setName(theUser.getName());
     existUser.setCity(theUser.getCity());
     existUser.setRole(theUser.getRole());
-    existUser.setClassId(theUser.getClassId());
-    existUser.setSquadId(theUser.getSquadId());
+    //existUser.setClassId(theUser.getClassId());
+    //existUser.setSquadId(theUser.getSquadId());
 
 
     return userService.save(existUser);

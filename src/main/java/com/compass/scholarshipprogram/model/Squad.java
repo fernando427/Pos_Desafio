@@ -22,6 +22,9 @@ public class Squad {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Classes classes;
 
+    @OneToMany(mappedBy = "squad")
+    private List<User> user;
+
     public Squad() {
     }
 

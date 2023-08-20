@@ -30,7 +30,7 @@ public class User {
   public User() {
   }
 
-  public User(String name, String city, String role, Classes classes, Squad squad) {
+  public User(String name, String city, String role, Squad squad, Classes classes) {
     this.name = name;
     this.city = city;
     this.role = role;
@@ -88,8 +88,13 @@ public class User {
 
   @Override
   public String toString() {
-    return "User [id=" + id + ", name=" + name + ", city=" + city + ", role=" + role + ", classId=" + classes
-        + ", squadId=" + squad + "]";
+    return "User{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", city='" + city + '\'' +
+            ", role='" + role + '\'' +
+            ", classes=" + classes +
+            ", squad=" + squad +
+            '}';
   }
-
 }

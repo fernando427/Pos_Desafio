@@ -15,6 +15,9 @@ public class Classes {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(mappedBy = "classes")
+    private List<User> user;
+
     public Classes() {
     }
 
